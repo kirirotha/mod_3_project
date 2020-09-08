@@ -16,6 +16,7 @@ const renderBoard = () =>{
         for(let j = 0; j < 10; j++){
             let cell = document.createElement('td')
             cell.id = `${i}${j}`
+            cell.style.backgroundColor = "black"
             row.appendChild(cell)
             cellListener(cell)
         }
@@ -23,6 +24,16 @@ const renderBoard = () =>{
 }
 
 const cellListener = (cell) => {
+    cell.addEventListener('mouseenter', (e) =>{
+        if (e.target.style.backgroundColor === "black"){
+            e.target.style.backgroundColor = "red"
+        }
+    })
+    cell.addEventListener('mouseleave', (e) =>{
+        if (e.target.style.backgroundColor === "red"){
+            e.target.style.backgroundColor = "black"
+        }
+    })
     cell.addEventListener('click', (e) =>{
         console.log(e.target.id)
         renderIconInCell(TESTIMG, e.target.id)
@@ -58,5 +69,14 @@ const renderIconInCell = (image, cellId) => {
     cell.appendChild(testImage)
     testImage.addEventListener('click', (e) => {
         e.target.parentElement.style.backgroundColor = "green"
+    })
+}
+
+const cellHover = () => {
+    cell.addEventListener('mouseenter', (e) =>{
+        e.target.style.borderColor = "red"
+    })
+    cell.addEventListener('mouseleave', (e) =>{
+        e.target.style.borderColor = "black"
     })
 }
