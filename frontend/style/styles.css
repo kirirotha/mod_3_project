@@ -23,6 +23,15 @@
     width: 680px;
     top: 212px;
     left: 316px;
+    z-index: 0;
+}
+.canvas-box{
+    position: absolute;
+    height: 696px;
+    width: 680px;
+    top: 212px;
+    left: 316px;
+    z-index: 90;
 }
 .right-box{
     position: absolute;
@@ -60,17 +69,6 @@ table{
     table-layout: fixed;
 }
 
-#game-board{
-    width: 640px;
-    height: 640px;
-}
-gamecell{
-    background-color: black;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-}
-
 .play-option-box{
     position: relative;
     height: 80px;
@@ -78,4 +76,11 @@ gamecell{
     top: 90px;
     left: 130px;
     background-color: bisque;
+}
+
+.terrain{
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    z-index: 0;
 }
