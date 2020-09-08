@@ -8,6 +8,8 @@
     width: 1400px;
     left: 0px;
     top: 0px;
+    text-align: center;
+
 }
 .left-box{
    position: absolute;
@@ -58,9 +60,22 @@ table{
     table-layout: fixed;
 }
 
-td{
+#game-board{
+    width: 640px;
+    height: 640px;
+}
+gamecell{
     background-color: black;
-    width: 65px;
-    height: 65px;
+    width: 40px;
+    height: 40px;
     text-align: center;
+}
+
+.play-option-box{
+    position: relative;
+    height: 80px;
+    width: 120px;
+    top: 90px;
+    left: 130px;
+    background-color: bisque;
 }
