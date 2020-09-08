@@ -94,7 +94,7 @@ Example Stats: (HP, ATK, ATK Range, and Movement are the only ones implemented a
 
 Example Stats:
 
-- HP 45 - 60 *
+- HP 45 - 65 *
 - ATK 9 - 11 *
 - ATK Range 3 Spaces
 - Movement 3 Spaces
