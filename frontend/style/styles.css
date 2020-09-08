@@ -1,36 +1,61 @@
+.container{
+    height: 1500px;
+    width: 1200px;
+}
 .top-box{
-    position: relative;
+    position: absolute;
     height: 200px;
+    width: 1400px;
+    left: 0px;
+    top: 0px;
 }
 .left-box{
    position: absolute;
    width: 300px;
    height: 700px;
-   top: 220px 
+   top: 212px 
 }
 .center-box{
     position: absolute;
-    height: 700px;
-    width: 700px;
-    top: 220px;
-    left: 320px;
+    height: 696px;
+    width: 680px;
+    top: 212px;
+    left: 316px;
 }
 .right-box{
     position: absolute;
     width: 300px;
     height: 700px;
-    right: 0px;
-    top: 220px
+    left: 1004px;
+    top: 212px
 }
 .bottom-box{
     position: absolute;
     height: 200px;
     width: 1400px;
-    top: 900px;
+    top: 908px;
     left: 0px;
 }
+
+.player-1-dugout{
+    position: absolute;
+    height: 80px;
+    width: 680px;
+    bottom: 0px;
+    left: 316px;
+}
+
+.player-2-dugout{
+    position: absolute;
+    height: 80px;
+    width: 680px;
+    top: 0px;
+    left: 316px;
+}
+
 table{
     position: absolute;
+    table-layout: fixed;
 }
 
 td{
