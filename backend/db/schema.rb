@@ -13,6 +13,12 @@
 ActiveRecord::Schema.define(version: 2020_09_04_201017) do
 
   create_table "actions", force: :cascade do |t|
+    t.integer "move"
+    t.integer "attack"
+    t.integer "wait"
+    t.integer "status"
+    t.integer "turn"
+    t.integer "atk_target"
     t.integer "game_id", null: false
     t.integer "player_id", null: false
     t.integer "minion_id", null: false
@@ -25,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_09_04_201017) do
 
   create_table "boards", force: :cascade do |t|
     t.integer "game_id", null: false
+    t.string "cell"
     t.integer "lat"
     t.integer "long"
     t.datetime "created_at", precision: 6, null: false
@@ -33,21 +40,28 @@ ActiveRecord::Schema.define(version: 2020_09_04_201017) do
   end
 
   create_table "games", force: :cascade do |t|
+    t.integer "team_selection"
+    t.boolean "ready_check"
+    t.integer "coin_toss"
+    t.integer "map_positioning"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "minions", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.boolean "leader"
+    t.integer "type"
     t.integer "hp"
-    t.integer "dmg"
-    t.integer "move"
+    t.integer "atk"
+    t.integer "atk_range"
+    t.integer "move_range"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "players", force: :cascade do |t|
+    t.string "leader_name"
     t.integer "game_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
