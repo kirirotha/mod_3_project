@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_09_04_201017) do
 
   create_table "boards", force: :cascade do |t|
     t.integer "game_id", null: false
+    t.integer "piece_placement"
     t.string "cell"
     t.integer "lat"
     t.integer "long"
@@ -51,13 +52,15 @@ ActiveRecord::Schema.define(version: 2020_09_04_201017) do
   create_table "minions", force: :cascade do |t|
     t.string "name"
     t.boolean "leader"
-    t.integer "type"
+    t.integer "class_type"
     t.integer "hp"
     t.integer "atk"
     t.integer "atk_range"
     t.integer "move_range"
+    t.integer "player_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["player_id"], name: "index_minions_on_player_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -81,6 +84,7 @@ ActiveRecord::Schema.define(version: 2020_09_04_201017) do
   add_foreign_key "actions", "minions"
   add_foreign_key "actions", "players"
   add_foreign_key "boards", "games"
+  add_foreign_key "minions", "players"
   add_foreign_key "players", "games"
   add_foreign_key "players", "users"
 end

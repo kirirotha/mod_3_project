@@ -3,11 +3,12 @@ class CreateMinions < ActiveRecord::Migration[6.0]
     create_table :minions do |t|
       t.string :name
       t.boolean :leader
-      t.integer :type
+      t.integer :class_type
       t.integer :hp
       t.integer :atk
       t.integer :atk_range
       t.integer :move_range
+      t.references :player, null: false, foreign_key: true
 
       t.timestamps
     end

@@ -20,6 +20,10 @@ class GamesController < ApplicationController
     def create
     end
 
+    def edit
+        @game = Game.find(params[:id])
+    end
+
     def update
     end
 
