@@ -27,6 +27,7 @@ class BoardsController < ApplicationController
     def update
         @board.update(board_params)
         @board.save
+        render :json => @board, :status => :accepted
     end
 
     private

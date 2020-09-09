@@ -1,9 +1,7 @@
 const placementTest = () => {
     //for(i = 0)
     pickupPiece()
-    // getMinionPositions()
-    // renderTerrain()
-    // renderBoard()
+   
 }
 
 const pickupPiece = () => {
@@ -14,16 +12,13 @@ const pickupPiece = () => {
                 selectedPiece = piece
             }
         })
+        placePiece()
     })
-    placePiece()
-
 }
-
 
 const placePiece = () => {
     gameTable.addEventListener('click', (e) =>{
-
-        locationPatch()
+        locationPatch() 
     })
 }
 
@@ -32,7 +27,6 @@ const locationPatch = () =>{
     let patchData = {
             "cell": thisClick2
     }
-    
     fetch(`http://localhost:3000/boards/${selectedPiece.id}`,{
     method: 'PATCH',
     headers: {
@@ -41,8 +35,10 @@ const locationPatch = () =>{
     },
     body: JSON.stringify(patchData)
     })
-    .then(renderBoard())
-    // .then(boards =>{
-    //     getBoardPos(boards)
-    // });
+    .then(res => res.json())
+    .then(movePieceDom(thisClick2))
+}
+
+const movePieceDom = (thisClick2) => {
+    selectedPiece.cell = thisClick2
 }

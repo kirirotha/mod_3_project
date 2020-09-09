@@ -10,9 +10,5 @@ const getMinionPositions = () => {
 
 const getBoardPos = (boards) =>{
     piecePositions = boards
+    renderBoard()
 }
-// const renderIcons = (boards) => {
-//     boards.forEach(board =>{
-//         renderIcon(TESTIMG, board.cell)
-//     })
-// }
