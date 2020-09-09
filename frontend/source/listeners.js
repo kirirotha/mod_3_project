@@ -2,7 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
     getMinionPositions()
     renderTerrain()
     renderBoard()
-    placementTest()
+    renderControlBoard()
+    //placementTest()
+    //attackTest()
 })
 
 const cellListener = (gameTable) => {

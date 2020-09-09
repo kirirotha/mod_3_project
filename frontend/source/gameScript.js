@@ -6,6 +6,7 @@ const placementTest = () => {
 
 const pickupPiece = () => {
     gameTable.addEventListener('click', (e) =>{
+        e.preventDefault()
         //selectedPiece = null
         piecePositions.forEach(piece => {
             let thisClick = lastClick
@@ -48,15 +49,12 @@ const pushShading = (i, j, newX, newY, range) =>{
 
 const placePiece = () => {
     gameTable.addEventListener('click', (e) =>{
+        e.preventDefault()
         shadeArea = []
         locationPatch()
         pickupPiece() 
     })
-    gameTable.addEventListener('click', (e) =>{
-        shadeArea = []
-        locationPatch()
-        pickupPiece() 
-    })
+
 }
 
 const locationPatch = () =>{
@@ -100,4 +98,63 @@ const movePieceDom = (thisClick2) => {
     // setTimeout(() => {
          selectedPiece.cell = thisClick2
     // }, 2001)
+}
+
+
+
+const attackTest = () => {
+    //for(i = 0)
+    //pickupPiece()
+    selectFighter()
+   
+}
+
+const selectFighter = () => {
+    gameTable.addEventListener('click', (e) =>{
+        e.preventDefault()
+        //selectedPiece = null
+        piecePositions.forEach(piece => {
+            let thisClick = lastClick
+            if(thisClick === piece.cell){
+                selectedPiece = piece
+                let cellParsed  = selectedPiece.cell.split("_")
+                let cellX = cellParsed[0]
+                let cellY = cellParsed[1]
+                shadeArea = []
+                shadeColor = "rgba(255, 0, 0, 0.4)"
+                shadeArea.push(selectedPiece.cell)
+                for(let i = 0; i <= selectedPiece.atk_range; i++){
+                    for(let j = 0; j <= selectedPiece.atk_range; j++){
+                        let newX = Number(cellX) + i
+                        let newY = Number(cellY) + j 
+                        pushShading(i, j, newX, newY, selectedPiece.atk_range)
+                        newX = Number(cellX) - i
+                        newY = Number(cellY) - j 
+                        pushShading(i, j, newX, newY, selectedPiece.atk_range)
+                        newX = Number(cellX) + i
+                        newY = Number(cellY) - j 
+                        pushShading(i, j, newX, newY, selectedPiece.atk_range)
+                        newX = Number(cellX) - i
+                        newY = Number(cellY) + j 
+                        pushShading(i, j, newX, newY, selectedPiece.atk_range)
+                    }
+                }
+                shadeArea = [...new Set(shadeArea)]
+            }
+        })
+        attackPiece()
+    })
+}
+
+const attackPiece = () => {
+    gameTable.addEventListener('click', (e) =>{
+        e.preventDefault()
+        let thisClick = lastClick
+        piecePositions.forEach(piece => {
+            if(thisClick === piece.cell){
+                piece.hp = piece.hp - selectedPiece.atk
+            }
+        })
+    })
+
 }

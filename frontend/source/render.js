@@ -1,4 +1,4 @@
-TESTIMG="images/knight.png"
+TESTIMG="images/Archer_3.png"
 TERRAIN="images/mudcracks.jpg"
 
 let lastHover
@@ -68,14 +68,15 @@ const renderIcon = (image, cell) => {
     let cellParsed = cell.split("_")
     imageX = (cellParsed[0] - 1) * 40 + 2 
     imageY = (cellParsed[1] - 1) * 40 + 2
-    ctx.drawImage(base_image, imageX, imageY - 15, 70, 50);
+    ctx.drawImage(base_image, imageX, imageY - 15, 50, 50);
 }
 
 const renderPieces = () => {
     piecePositions.forEach(pos =>{
-        renderIcon(TESTIMG, pos.cell)
-        renderHpBar(pos.cell, pos.hp, pos.hp_max)
-        
+        if (pos.hp > 0) {
+            renderIcon(TESTIMG, pos.cell)
+            renderHpBar(pos.cell, pos.hp, pos.hp_max)
+        }
     })
 }
 
@@ -89,18 +90,24 @@ const renderHpBar = (cell, hp, hp_max) =>{
     ctx.fillRect(imageX, imageY, hpBar, 4)
 }
 
-const renderShading = (shadeArea, shadeColor) => {
-        
-        shadeArea.forEach(square => {
-            let squareParsed = square.split("_")
-            let squareStartX = (squareParsed[0] - 1) * 40 
-            let squareStartY = (squareParsed[1] - 1) * 40
-            ctx.fillStyle = shadeColor;
-            ctx.fillRect(squareStartX, squareStartY, 40, 40);
-        })
+const renderShading = (shadeArea, shadeColor) => {    
+    shadeArea.forEach(square => {
+        let squareParsed = square.split("_")
+        let squareStartX = (squareParsed[0] - 1) * 40 
+        let squareStartY = (squareParsed[1] - 1) * 40
+        ctx.fillStyle = shadeColor;
+        ctx.fillRect(squareStartX, squareStartY, 40, 40);
+    })
 }
 
-
+const renderControlBoard = () => {
+    const rightBox = document.querySelector(".right-box")
+    controlBoardBase = document.createElement('div')
+    controlBoardBase.id = "control-board"
+    controlBoardBase.classList.add("control-board")
+    
+    rightBox.appendChild(controlBoardBase)
+}
 
 
 //--------------------------test stuff
