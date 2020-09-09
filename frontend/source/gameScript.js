@@ -1,3 +1,6 @@
+
+
+
 const placementTest = () => {
     //for(i = 0)
     pickupPiece()
@@ -157,4 +160,15 @@ const attackPiece = () => {
         })
     })
 
+}
+
+const startScreen = () => {
+    let controlBox = document.querySelector(".control-board-top")
+    let startGameTitle = document.createElement('h1')
+    startGameTitle.innerText = "Choose One:"
+    controlBox.appendChild(startGameTitle)
+    let startButton = document.createElement('button')
+    startButton.innerText = "New Game"
+    startButton.classList.add('fire')
+    controlBox.appendChild(startButton)
 }

@@ -1,4 +1,9 @@
+body{
+    margin:0px;
+}
+
 .container{
+    margin:0px;
     height: 1500px;
     width: 1200px;
 }
@@ -19,18 +24,18 @@
 }
 .center-box{
     position: absolute;
-    height: 644px;
-    width: 6px;
-    top: 212px;
-    left: 116px;
+    height: 670px;
+    width: 670px;
+    top: 197px;
+    left: 101px;
     z-index: 0;
 }
 .canvas-box{
     position: absolute;
-    height: 644px;
-    width: 644px;
-    top: 212px;
-    left: 116px;
+    height: 674px;
+    width: 674px;
+    top: 197px;
+    left: 101px;
     z-index: 90;
 	-webkit-transition: 200ms ease-in-out;
 	-o-transition: 200ms ease-in-out;
@@ -47,10 +52,10 @@
 
 .right-box{
     position: absolute;
-    width: 300px;
-    height: 700px;
-    left: 764px;
-    top: 202px
+    width: 420px;
+    height: 760px;
+    left: 794px;
+    top: 188px
 }
 
 .bottom-box{
@@ -82,15 +87,6 @@ table{
     table-layout: fixed;
 }
 
-.play-option-box{
-    position: relative;
-    height: 80px;
-    width: 120px;
-    top: 90px;
-    left: 130px;
-    background-color: bisque;
-}
-
 .terrain{
     position: absolute;
     left: 2px;
@@ -101,8 +97,9 @@ table{
 
 .control-board{
     margin: 10px;
+    padding-top: 100px;
 	width: 400px;
-	height: 640px;
+	height: 570px;
 	text-align: center;
 	border-radius: 3px;
 	-webkit-transition: 200ms ease-in-out;
@@ -116,10 +113,10 @@ table{
 	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.7);
 	        box-shadow: 0 0 5px rgba(0,0,0,0.7);
 }
-.control-board h1 {
+.control-board-top h1 {
 	color: #fff;
-	padding: 30px;
-	margin-top: 100px;
+    padding: 30px;
+	/* margin-top: 100px; */
 	text-align: center;
 	font-weight: 100;
 	font-size: 25px;
@@ -127,3 +124,113 @@ table{
 	-webkit-box-shadow: 0 0 30px rgba(0,0,0,0.7);
 	        box-shadow: 0 0 30px rgba(0,0,0,0.8);
 }
+
+.conrtol-board-top {
+	color: #fff;
+	font-weight: 300;
+	text-align: center;
+	letter-spacing: 3px;
+	text-shadow: 0 0 3px rgba(0,0,0,0.9);
+}
+
+$color-highlight-fire: rgba(255, 236, 168, 1)
+$color-primary-fire: rgba(255, 138, 48, 1)
+$color-secondary-fire: rgba(240, 96, 29, 1)
+
+$color-highlight-ice: rgba(168, 236, 255, 1)
+$color-primary-ice: rgba(48, 138, 255, 1)
+$color-secondary-ice: rgba(29, 96, 240, 1)
+
+.button
+	border: 1px solid green
+	backdrop-filter: blur(10px)
+	transform: skewX(-10deg)
+	height: 50px
+	width: 200px
+	border-radius: 20px 5px 20px 0px
+	position: relative
+	display: flex
+	align-items: center
+	justify-content: center
+	transition: all .3s ease
+	font: 15px sans-serif
+	font-weight: 300
+	text-shadow: 0 0 20px #fff
+	text-transform: uppercase
+	animation: breath2 2s .5s infinite alternate
+	transition: all .2s ease
+	cursor: pointer
+		
+	&:before
+		content: ""
+		display: block
+		width: calc(100% - 22px)
+		height: calc(50px - 8px)
+		animation: breath 2s infinite alternate
+		left: 10px
+		top: 3px
+		position: absolute
+		background-color: transparent
+		border: 1px solid #fff
+		border-radius: 15px 3px 15px 3px
+
+	&.fire
+		border-color: $color-highlight-fire
+		background-image: linear-gradient(to bottom, transparentize($color-primary-fire, .4), transparentize($color-secondary-fire, .4))
+		box-shadow: 0 0 70px transparentize($color-primary-fire, .4), 0 5px 20px transparentize($color-primary-fire, .4), inset 0 1px $color-highlight-fire, inset 0 -1px $color-highlight-fire
+		color: $color-highlight-fire
+		&:before
+			box-shadow: inset 0 0 30px 0 $color-highlight-fire
+	&.ice
+		border-color: $color-highlight-ice
+		background-image: linear-gradient(to bottom, transparentize($color-primary-ice, .5), transparentize($color-secondary-ice, .5))
+		box-shadow: 0 0 70px transparentize($color-primary-ice, .5), 0 5px 20px transparentize($color-primary-ice, .5), inset 0 1px $color-highlight-fire, inset 0 -1px $color-highlight-fire
+		color: $color-highlight-ice
+		&:before
+			box-shadow: inset 0 0 30px 0 $color-highlight-ice
+	
+	&:hover
+		&.fire
+			box-shadow: 0 0 70px transparentize($color-primary-fire, .2), 0 5px 20px transparentize($color-primary-fire, .2), inset 0 1px $color-highlight-fire, inset 0 -1px $color-highlight-fire
+			&:before
+				box-shadow: inset 0 0 50px 0 $color-highlight-fire
+		&.ice
+			box-shadow: 0 0 70px transparentize($color-primary-ice, .2), 0 5px 20px transparentize($color-primary-ice, .2), inset 0 1px $color-highlight-ice, inset 0 -1px $color-highlight-ice
+			&:before
+				box-shadow: inset 0 0 50px 0 $color-highlight-ice
+			
+	& + &
+		margin-top: 15px
+		animation-delay: .3s
+
+
+@keyframes breath
+	0%
+		transform: scaleX(1)
+	100%
+		transform: scaleX(0.95)
+
+@keyframes breath2
+	0%
+		transform: skewX(-10deg) scaleX(1)
+	100%
+		transform: skewX(-10deg) scaleX(0.95)
+
+
+
+.ref
+	backdrop-filter: blur(10px)
+	border: 1px solid rgba(255, 255, 255, .6)
+	border-radius: 3px
+	padding: 5px 8px
+	position: absolute
+	font-size: 16px
+	bottom: 10px
+	right: 10px
+	color: #fff
+	font-weight: 300
+	font-family: sans-serif
+	text-decoration: none
+	&::first-letter
+		font-size: 12px
+ 

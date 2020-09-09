@@ -20,9 +20,10 @@ const cellListener = (gameTable) => {
         gradient.addColorStop("1.0", "red");
         ctx.strokeStyle = gradient;
         ctx.lineWidth = 3;
-        rectX = ((lastHoverX-1) * 40)
-        rectY = ((lastHoverY-1) * 40)
-        
+        if (lastHoverX > 0 && lastHoverX < 17 && lastHoverY > 0 && lastHoverY < 17){
+            rectX = ((lastHoverX-1) * 40 + 15)
+            rectY = ((lastHoverY-1) * 40 + 15)
+        }
     }
     gameTable.onclick = (e) => {
         lastClickX = Math.ceil((e.pageX - 117)/40)
