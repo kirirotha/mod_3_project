@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const cellListener = (gameTable) => {
     let ctx = gameTable.getContext('2d')
     gameTable.onmousemove = (e) => {
-        lastHoverX = Math.ceil((e.pageX - 317)/40)
+        lastHoverX = Math.ceil((e.pageX - 117)/40)
         lastHoverY = Math.ceil((e.pageY - 213)/40)
         lastHover = `${lastHoverX}_${lastHoverY}`
         // console.log(`last hover ${lastHover}`)
@@ -23,7 +23,7 @@ const cellListener = (gameTable) => {
         
     }
     gameTable.onclick = (e) => {
-        lastClickX = Math.ceil((e.pageX - 317)/40)
+        lastClickX = Math.ceil((e.pageX - 117)/40)
         lastClickY = Math.ceil((e.pageY - 213)/40)
         lastClick = `${lastClickX}_${lastClickY}` 
         console.log(`last click ${lastClick}`)

@@ -4,7 +4,9 @@ class CreateMinions < ActiveRecord::Migration[6.0]
       t.string :name
       t.boolean :leader
       t.integer :class_type
+      t.string :cell
       t.integer :hp
+      t.integer :hp_max
       t.integer :atk
       t.integer :atk_range
       t.integer :move_range

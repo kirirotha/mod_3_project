@@ -1,14 +1,14 @@
 let piecePositions
 
 const getMinionPositions = () => {
-    fetch('http://localhost:3000/boards')
+    fetch('http://localhost:3000/minions')
     .then(res => res.json())
-    .then(boards =>{
-        getBoardPos(boards)
+    .then(minions =>{
+        getBoardPos(minions)
     })
 }
 
-const getBoardPos = (boards) =>{
-    piecePositions = boards
+const getBoardPos = (minions) =>{
+    piecePositions = minions
     renderBoard()
 }

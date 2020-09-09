@@ -31,10 +31,6 @@ ActiveRecord::Schema.define(version: 2020_09_04_201017) do
 
   create_table "boards", force: :cascade do |t|
     t.integer "game_id", null: false
-    t.integer "piece_placement"
-    t.string "cell"
-    t.integer "lat"
-    t.integer "long"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["game_id"], name: "index_boards_on_game_id"
@@ -53,7 +49,9 @@ ActiveRecord::Schema.define(version: 2020_09_04_201017) do
     t.string "name"
     t.boolean "leader"
     t.integer "class_type"
+    t.string "cell"
     t.integer "hp"
+    t.integer "hp_max"
     t.integer "atk"
     t.integer "atk_range"
     t.integer "move_range"

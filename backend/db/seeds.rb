@@ -18,14 +18,14 @@ bob = User.create(name: 'Bob', password: 'pw1')
 mary = User.create(name: 'Mary', password: 'pw2')
 p1 = Player.create(leader_name: '', game_id: g1.id, user_id: bob.id)
 p2 = Player.create(leader_name: '', game_id: g1.id, user_id: mary.id)
-pos1 = Board.create(game_id: g1.id, piece_placement: 1, cell: "7_1", lat: 8, long: 8)
-pos2 = Board.create(game_id: g1.id, piece_placement: 2, cell: "8_1", lat: 8, long: 16)
-pos3 = Board.create(game_id: g1.id, piece_placement: 3, cell: "9_1", lat: 8, long: 1)
-pos4 = Board.create(game_id: g1.id, piece_placement: 1, cell: "10_1", lat: 8, long: 8)
-pos5 = Board.create(game_id: g1.id, piece_placement: 2, cell: "7_16", lat: 8, long: 16)
-pos6 = Board.create(game_id: g1.id, piece_placement: 3, cell: "8_16", lat: 8, long: 1)
-pos7 = Board.create(game_id: g1.id, piece_placement: 1, cell: "9_16", lat: 8, long: 8)
-pos8 = Board.create(game_id: g1.id, piece_placement: 2, cell: "10_16", lat: 8, long: 16)
+# pos1 = Board.create(game_id: g1.id, piece_placement: 1, cell: "7_1", lat: 8, long: 8)
+# pos2 = Board.create(game_id: g1.id, piece_placement: 2, cell: "8_1", lat: 8, long: 16)
+# pos3 = Board.create(game_id: g1.id, piece_placement: 3, cell: "9_1", lat: 8, long: 1)
+# pos4 = Board.create(game_id: g1.id, piece_placement: 1, cell: "10_1", lat: 8, long: 8)
+# pos5 = Board.create(game_id: g1.id, piece_placement: 2, cell: "7_16", lat: 8, long: 16)
+# pos6 = Board.create(game_id: g1.id, piece_placement: 3, cell: "8_16", lat: 8, long: 1)
+# pos7 = Board.create(game_id: g1.id, piece_placement: 1, cell: "9_16", lat: 8, long: 8)
+# pos8 = Board.create(game_id: g1.id, piece_placement: 2, cell: "10_16", lat: 8, long: 16)
 
 
 ## Type dictates the class. 1 is Fighter, 2 is Archer, 3 is Mage,
@@ -33,27 +33,27 @@ pos8 = Board.create(game_id: g1.id, piece_placement: 2, cell: "10_16", lat: 8, l
 
 # Fighter Class
 #chuck = Minion.create(name: 'Chuck', leader: false, class_type: 1, hp: 75, atk: 8, atk_range: 1, move_range: 4)
-jarz = Minion.create(name: 'Jarz', leader: false, class_type: 1, hp: 50, atk: 12, atk_range: 1, move_range: 4, player_id: p2.id)
+jarz = Minion.create(name: 'Jarz', leader: false, class_type: 1, cell: "7_16", hp: 50, hp_max: 50, atk: 12, atk_range: 1, move_range: 4, player_id: p2.id)
 #teek = Minion.create(name: 'Teek', leader: false, class_type: 1, hp: 65, atk: 9, atk_range: 1, move_range: 4)
-mae = Minion.create(name: 'Mae', leader: false, class_type: 1, hp: 55, atk: 10, atk_range: 1, move_range: 4, player_id: p1.id)
+mae = Minion.create(name: 'Mae', leader: false, class_type: 1, cell: "7_1", hp: 55, hp_max: 55, atk: 10, atk_range: 1, move_range: 4, player_id: p1.id)
 
 # Archer Class
-ghost = Minion.create(name: 'Ghost', leader: false, class_type: 2, hp: 65, atk: 9, atk_range: 3, move_range: 3, player_id: p2.id)
-yinzo = Minion.create(name: 'Yinzo', leader: false, class_type: 2, hp: 45, atk: 12, atk_range: 3, move_range: 3, player_id: p1.id)
+ghost = Minion.create(name: 'Ghost', leader: false, class_type: 2, cell: "8_16", hp: 65, hp_max: 65, atk: 9, atk_range: 3, move_range: 3, player_id: p2.id)
+yinzo = Minion.create(name: 'Yinzo', leader: false, class_type: 2, cell: "8_1", hp: 45, hp_max: 45, atk: 12, atk_range: 3, move_range: 3, player_id: p1.id)
 #neena = Minion.create(name: 'Neena', leader: false, class_type: 2, hp: 50, atk: 11, atk_range: 3, move_range: 3)
 #udyr = Minion.create(name: 'Udyr', leader: false, class_type: 2, hp: 55, atk: 10, atk_range: 3, move_range: 3)
 
 # Mage Class
 #pearl = Minion.create(name: 'Pearl', leader: false, class_type: 3, hp: 35, atk: 20, atk_range: 2, move_range: 3)
-claudette = Minion.create(name: 'Claudette', leader: false, class_type: 3, hp: 50, atk: 15, atk_range: 2, move_range: 3, player_id: p2.id)
-gyler = Minion.create(name: 'Gyler', leader: false, class_type: 3, hp: 45, atk: 17, atk_range: 2, move_range: 3, player_id: p1.id)
+claudette = Minion.create(name: 'Claudette', leader: false, class_type: 3, cell: "9_16", hp: 50, hp_max: 50, atk: 15, atk_range: 2, move_range: 3, player_id: p2.id)
+gyler = Minion.create(name: 'Gyler', leader: false, class_type: 3, cell: "9_1", hp: 45, hp_max: 45, atk: 17, atk_range: 2, move_range: 3, player_id: p1.id)
 #lynette = Minion.create(name: 'Lynette', leader: false, class_type: 3, hp: 40, atk: 18, atk_range: 2, move_range: 3)
 
 # Leader Fighter Class
-leader_fighter = Minion.create(name: '', leader: true, class_type: 4, hp: 145, atk: 13, atk_range: 1, move_range: 5, player_id: p2.id)
+leader_fighter = Minion.create(name: '', leader: true, class_type: 4, cell: "10_16", hp: 145, hp_max: 145, atk: 13, atk_range: 1, move_range: 5, player_id: p2.id)
 
 # Leader Archer Class
-leader_archer = Minion.create(name: '', leader: true, class_type: 5, hp: 125, atk: 12, atk_range: 3, move_range: 5, player_id: p1.id)
+leader_archer = Minion.create(name: '', leader: true, class_type: 5, cell: "10_1", hp: 125, hp_max: 125, atk: 12, atk_range: 3, move_range: 5, player_id: p1.id)
 
 # Leader Mage Class
 #leader_mage = Minion.create(name: '', leader: true, class_type: 6, hp: 90, atk: 20, atk_range: 2, move_range: 5)

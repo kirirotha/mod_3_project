@@ -9,7 +9,8 @@ const ctx = document.getElementById("game-board").getContext('2d')
 const FPS = 30
 const gameTable = document.getElementById("game-board")
 let selectedPiece
-
+let shadeArea = []
+let shadeColor
 
 
 
@@ -28,6 +29,7 @@ const renderBoard = () =>{
     boardArea = gameTable.getContext('2d')
     gameTable.getContext('2d').clearRect(0, 0, 640, 640)
     gameTable.getContext('2d').strokeRect(rectX, rectY, 40, 40);
+    renderShading(shadeArea, shadeColor)
     cellListener(gameTable)
     if (piecePositions){
         renderPieces()
@@ -38,11 +40,11 @@ const renderBoard = () =>{
 }
 
 
-const renderOptionBox = (cellId) =>{
-    const playOptionBox = document.createElement("div")
-    playOptionBox.classList.add("play-option-box")
-    document.getElementById(cellId).appendChild(playOptionBox)
-}
+// const renderOptionBox = (cellId) =>{
+//     const playOptionBox = document.createElement("div")
+//     playOptionBox.classList.add("play-option-box")
+//     document.getElementById(cellId).appendChild(playOptionBox)
+// }
 
 
 const renderTitle = () =>{
@@ -69,6 +71,36 @@ const renderIcon = (image, cell) => {
     ctx.drawImage(base_image, imageX, imageY - 15, 70, 50);
 }
 
+const renderPieces = () => {
+    piecePositions.forEach(pos =>{
+        renderIcon(TESTIMG, pos.cell)
+        renderHpBar(pos.cell, pos.hp, pos.hp_max)
+        
+    })
+}
+
+const renderHpBar = (cell, hp, hp_max) =>{
+    let cellParsed = cell.split("_")
+    let hpBar = (hp/hp_max) * 30
+    imageX = (cellParsed[0] - 1) * 40 + 7
+    imageY = (cellParsed[1] - 1) * 40 - 20
+    //debugger
+    ctx.fillStyle = "green"
+    ctx.fillRect(imageX, imageY, hpBar, 4)
+}
+
+const renderShading = (shadeArea, shadeColor) => {
+        
+        shadeArea.forEach(square => {
+            let squareParsed = square.split("_")
+            let squareStartX = (squareParsed[0] - 1) * 40 
+            let squareStartY = (squareParsed[1] - 1) * 40
+            ctx.fillStyle = shadeColor;
+            ctx.fillRect(squareStartX, squareStartY, 40, 40);
+        })
+}
+
+
 
 
 //--------------------------test stuff
@@ -86,11 +118,3 @@ const testRun = () => {
 //     ctx.drawImage(base_image, imageX, imageY - 15, 70, 50);
 // }
 
-const renderPieces = () => {
-    piecePositions.forEach(pos =>{
-        renderIcon(TESTIMG, pos.cell)
-    })
-}
- const selectCell = () => {
-     
- }

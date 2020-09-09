@@ -25,6 +25,9 @@ class MinionsController < ApplicationController
     end
 
     def update
+        @minion.update(minion_params)
+        @minion.save
+        render :json => @minion, :status => :accepted
     end
 
     def delete
@@ -33,7 +36,7 @@ class MinionsController < ApplicationController
     private
 
     def minion_params
-        params.require(:minion).permit(:leader, :type, :hp, :atk, :atk_range, :move_range)
+        params.require(:minion).permit(:leader, :type, :hp, :atk, :atk_range, :move_range, :cell)
     end
 
     def find_minion
