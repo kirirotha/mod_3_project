@@ -173,15 +173,15 @@ const startScreen = () => {
     startButton.classList.add('button')
     startButton.classList.add('fire')
     controlBox.appendChild(startButton)
-    document.getElementById("start-button").style.left = "105px"
-    document.getElementById("start-button").style.top = "80px"
+    document.getElementById("start-button").style.left = "117px"
+    document.getElementById("start-button").style.top = "275px"
     let continueButton = document.createElement('button')
     continueButton.innerText = "Continue"
     continueButton.id = "continue-button"
     continueButton.classList.add('button')
     continueButton.classList.add('fire')
     controlBox.appendChild(continueButton)
-    document.getElementById("continue-button").style.left = "105px"
-    document.getElementById("continue-button").style.top = "160px"
+    document.getElementById("continue-button").style.left = "117px"
+    document.getElementById("continue-button").style.top = "400px"
 
 }
