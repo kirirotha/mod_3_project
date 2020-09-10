@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderTerrain()
     renderBoard()
     renderControlBoard()
+    renderTitleLogo()
     //placementTest()
     //attackTest()
 })
@@ -19,7 +20,7 @@ const cellListener = (gameTable) => {
         gradient.addColorStop("0.5" ,"blue");
         gradient.addColorStop("1.0", "red");
         ctx.strokeStyle = gradient;
-        ctx.lineWidth = 3;
+        ctx.lineWidth = 2;
         if (lastHoverX > 0 && lastHoverX < 17 && lastHoverY > 0 && lastHoverY < 17){
             rectX = ((lastHoverX-1) * 40 + 15)
             rectY = ((lastHoverY-1) * 40 + 15)

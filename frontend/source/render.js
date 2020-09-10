@@ -1,5 +1,8 @@
 TESTIMG="images/Archer_3.png"
 TERRAIN="images/Barren_Grasslands_1.png"
+CONTROL_BACKGROUND = "images/Parchment_background.jpg"
+TITLE_LOGO = "images/Tactics_Lite_Logo.png"
+BACKGROUND_IMG = "images/Smoke_Background.png"
 
 let lastHover
 let lastClick = "8_16"
@@ -25,6 +28,15 @@ const LEADER_FIGHTER = "images/Leader_Fighter.png"
 const LEADER_ARCHER = "images/Leader_Archer.png"
 const LEADER_MAGE = "images/Leader_Mage.png"
 
+
+const renderTitleLogo = () =>{
+    const topBox = document.querySelector(".top-box")
+    let imageLogo = document.createElement('img')
+    imageLogo.src = TITLE_LOGO
+    imageLogo.style.height = "200px"
+    imageLogo.style.left = "20px"
+    topBox.appendChild(imageLogo)
+}
 
 const renderTerrain = () =>{
     let testTerrain = document.createElement("img")
@@ -135,13 +147,10 @@ const renderShading = (shadeArea, shadeColor) => {
 
 const renderControlBoard = () => {
     const rightBox = document.querySelector(".right-box")
-    controlBoardBase = document.createElement('div')
-    controlBoardBase.id = "control-board"
-    controlBoardBase.classList.add("control-board")
-    rightBox.appendChild(controlBoardBase)
-    let controlBoardTop = document.createElement('div')
-    controlBoardTop.classList.add("control-board-top")
-    controlBoardBase.appendChild(controlBoardTop)
+    controlBackGround = document.createElement('img')
+    controlBackGround.src = CONTROL_BACKGROUND
+    controlBackGround.classList.add("control-background")
+    rightBox.appendChild(controlBackGround)
     startScreen()
 }
 

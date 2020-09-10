@@ -1,5 +1,7 @@
 body{
+    background-image: url("../images/Gray_BG.jpg");
     margin:0px;
+    background-size: cover;
 }
 
 .container{
@@ -52,10 +54,58 @@ body{
 
 .right-box{
     position: absolute;
-    width: 420px;
-    height: 760px;
+    width: 400px;
+    height: 670px;
     left: 794px;
-    top: 188px
+    top: 198px;
+    z-index: 0;
+    -webkit-transition: 200ms ease-in-out;
+	-o-transition: 200ms ease-in-out;
+	transition: 200ms ease-in-out;
+	-webkit-box-shadow: 0 0 15px rgba(0,0,0,0.3);
+	        box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.right-box:hover {
+	margin-bottom: -10px;
+	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.7);
+            box-shadow: 0 0 5px rgba(0,0,0,0.7);
+}
+
+.controller-box{
+    position: absolute;
+    width: 400px;
+    height: 670px;
+    left: 794px;
+    top: 198px;
+    z-index: 10;
+}
+
+.controller-box:hover {
+	margin-bottom: -10px;
+	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.7);
+            box-shadow: 0 0 5px rgba(0,0,0,0.7);
+}
+
+.controller-box h1 {
+	color: #fff;
+    padding: 30px;
+	margin-top: 100px;
+	text-align: center;
+	font-weight: 100;
+	font-size: 25px;
+	background: rgba(0,0,0,0.8);
+	-webkit-box-shadow: 0 0 30px rgba(0,0,0,0.7);
+	        box-shadow: 0 0 30px rgba(0,0,0,0.8);
+}
+
+
+.control-background{
+    margin-top: 0px;
+    top: 0px;
+    left: 0px;
+    width: 400px;
+    height: 670px;
 }
 
 .bottom-box{
@@ -95,142 +145,126 @@ table{
 }
 
 
-.control-board{
-    margin: 10px;
-    padding-top: 100px;
-	width: 400px;
-	height: 570px;
-	text-align: center;
-	border-radius: 3px;
-	-webkit-transition: 200ms ease-in-out;
-	-o-transition: 200ms ease-in-out;
-	transition: 200ms ease-in-out;
-	-webkit-box-shadow: 0 0 15px rgba(0,0,0,0.3);
-	        box-shadow: 0 0 15px rgba(0,0,0,0.3);
-}
-.control-board:hover {
-	margin-bottom: -10px;
-	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.7);
-	        box-shadow: 0 0 5px rgba(0,0,0,0.7);
-}
-.control-board-top h1 {
-	color: #fff;
-    padding: 30px;
-	/* margin-top: 100px; */
-	text-align: center;
-	font-weight: 100;
-	font-size: 25px;
-	background: rgba(0,0,0,0.8);
-	-webkit-box-shadow: 0 0 30px rgba(0,0,0,0.7);
-	        box-shadow: 0 0 30px rgba(0,0,0,0.8);
+
+
+
+
+/* buttons */
+
+
+.button {
+	border: 1px solid green;
+	backdrop-filter: blur(10px);
+	transform: skewX(-10deg);
+	height: 50px;
+	width: 200px;
+	border-radius: 20px 5px 20px 0px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all .3s ease;
+	font: 15px sans-serif;
+	font-weight: 300;
+	text-shadow: 0 0 20px #fff;
+	text-transform: uppercase;
+	animation: breath2 2s .5s infinite alternate;
+	transition: all .2s ease;
+	cursor: pointer;
 }
 
-.conrtol-board-top {
+.button:before {
+	content: "";
+	display: block;
+	width: calc(100% - 22px);
+	height: calc(50px - 8px);
+	animation: breath 2s infinite alternate;
+	left: 10px;
+	top: 3px;
+	position: absolute;
+	background-color: transparent;
+	border: 1px solid #fff;
+	border-radius: 15px 3px 15px 3px;
+}
+
+.button.fire {
+	border-color: #ffeca8;
+	background-image: linear-gradient(to bottom, rgba(255, 138, 48, 0.6), rgba(240, 96, 29, 0.6));
+	box-shadow: 0 0 70px rgba(255, 138, 48, 0.6), 0 5px 20px rgba(255, 138, 48, 0.6), inset 0 1px #ffeca8, inset 0 -1px #ffeca8;
+	color: #ffeca8;
+}
+
+.button.fire:before {
+	box-shadow: inset 0 0 30px 0 #ffeca8;
+}
+
+.button.ice {
+	border-color: #a8ecff;
+	background-image: linear-gradient(to bottom, rgba(48, 138, 255, 0.5), rgba(29, 96, 240, 0.5));
+	box-shadow: 0 0 70px rgba(48, 138, 255, 0.5), 0 5px 20px rgba(48, 138, 255, 0.5), inset 0 1px #ffeca8, inset 0 -1px #ffeca8;
+	color: #a8ecff;
+}
+
+.button.ice:before {
+	box-shadow: inset 0 0 30px 0 #a8ecff;
+}
+
+.button:hover.fire {
+	box-shadow: 0 0 70px rgba(255, 138, 48, 0.8), 0 5px 20px rgba(255, 138, 48, 0.8), inset 0 1px #ffeca8, inset 0 -1px #ffeca8;
+}
+
+.button:hover.fire:before {
+	box-shadow: inset 0 0 50px 0 #ffeca8;
+}
+
+.button:hover.ice {
+	box-shadow: 0 0 70px rgba(48, 138, 255, 0.8), 0 5px 20px rgba(48, 138, 255, 0.8), inset 0 1px #a8ecff, inset 0 -1px #a8ecff;
+}
+
+.button:hover.ice:before {
+	box-shadow: inset 0 0 50px 0 #a8ecff;
+}
+
+.button + .button {
+	margin-top: 15px;
+	animation-delay: .3s;
+}
+
+@keyframes breath {
+	0% {
+		transform: scaleX(1);
+	}
+
+	100% {
+		transform: scaleX(0.95);
+	}
+}
+
+@keyframes breath2 {
+	0% {
+		transform: skewX(-10deg) scaleX(1);
+	}
+
+	100% {
+		transform: skewX(-10deg) scaleX(0.95);
+	}
+}
+
+.ref {
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.6);
+	border-radius: 3px;
+	padding: 5px 8px;
+	position: absolute;
+	font-size: 16px;
+	bottom: 10px;
+	right: 10px;
 	color: #fff;
 	font-weight: 300;
-	text-align: center;
-	letter-spacing: 3px;
-	text-shadow: 0 0 3px rgba(0,0,0,0.9);
+	font-family: sans-serif;
+	text-decoration: none;
 }
 
-$color-highlight-fire: rgba(255, 236, 168, 1)
-$color-primary-fire: rgba(255, 138, 48, 1)
-$color-secondary-fire: rgba(240, 96, 29, 1)
-
-$color-highlight-ice: rgba(168, 236, 255, 1)
-$color-primary-ice: rgba(48, 138, 255, 1)
-$color-secondary-ice: rgba(29, 96, 240, 1)
-
-.button
-	border: 1px solid green
-	backdrop-filter: blur(10px)
-	transform: skewX(-10deg)
-	height: 50px
-	width: 200px
-	border-radius: 20px 5px 20px 0px
-	position: relative
-	display: flex
-	align-items: center
-	justify-content: center
-	transition: all .3s ease
-	font: 15px sans-serif
-	font-weight: 300
-	text-shadow: 0 0 20px #fff
-	text-transform: uppercase
-	animation: breath2 2s .5s infinite alternate
-	transition: all .2s ease
-	cursor: pointer
-		
-	&:before
-		content: ""
-		display: block
-		width: calc(100% - 22px)
-		height: calc(50px - 8px)
-		animation: breath 2s infinite alternate
-		left: 10px
-		top: 3px
-		position: absolute
-		background-color: transparent
-		border: 1px solid #fff
-		border-radius: 15px 3px 15px 3px
-
-	&.fire
-		border-color: $color-highlight-fire
-		background-image: linear-gradient(to bottom, transparentize($color-primary-fire, .4), transparentize($color-secondary-fire, .4))
-		box-shadow: 0 0 70px transparentize($color-primary-fire, .4), 0 5px 20px transparentize($color-primary-fire, .4), inset 0 1px $color-highlight-fire, inset 0 -1px $color-highlight-fire
-		color: $color-highlight-fire
-		&:before
-			box-shadow: inset 0 0 30px 0 $color-highlight-fire
-	&.ice
-		border-color: $color-highlight-ice
-		background-image: linear-gradient(to bottom, transparentize($color-primary-ice, .5), transparentize($color-secondary-ice, .5))
-		box-shadow: 0 0 70px transparentize($color-primary-ice, .5), 0 5px 20px transparentize($color-primary-ice, .5), inset 0 1px $color-highlight-fire, inset 0 -1px $color-highlight-fire
-		color: $color-highlight-ice
-		&:before
-			box-shadow: inset 0 0 30px 0 $color-highlight-ice
-	
-	&:hover
-		&.fire
-			box-shadow: 0 0 70px transparentize($color-primary-fire, .2), 0 5px 20px transparentize($color-primary-fire, .2), inset 0 1px $color-highlight-fire, inset 0 -1px $color-highlight-fire
-			&:before
-				box-shadow: inset 0 0 50px 0 $color-highlight-fire
-		&.ice
-			box-shadow: 0 0 70px transparentize($color-primary-ice, .2), 0 5px 20px transparentize($color-primary-ice, .2), inset 0 1px $color-highlight-ice, inset 0 -1px $color-highlight-ice
-			&:before
-				box-shadow: inset 0 0 50px 0 $color-highlight-ice
-			
-	& + &
-		margin-top: 15px
-		animation-delay: .3s
-
-
-@keyframes breath
-	0%
-		transform: scaleX(1)
-	100%
-		transform: scaleX(0.95)
-
-@keyframes breath2
-	0%
-		transform: skewX(-10deg) scaleX(1)
-	100%
-		transform: skewX(-10deg) scaleX(0.95)
-
-
-
-.ref
-	backdrop-filter: blur(10px)
-	border: 1px solid rgba(255, 255, 255, .6)
-	border-radius: 3px
-	padding: 5px 8px
-	position: absolute
-	font-size: 16px
-	bottom: 10px
-	right: 10px
-	color: #fff
-	font-weight: 300
-	font-family: sans-serif
-	text-decoration: none
-	&::first-letter
-		font-size: 12px
- 
+.ref::first-letter {
+	font-size: 12px;
+}
