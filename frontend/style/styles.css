@@ -78,7 +78,7 @@ body{
     height: 670px;
     left: 794px;
     top: 198px;
-    z-index: 10;
+    z-index: 100;
 }
 
 .controller-box:hover {
@@ -90,7 +90,7 @@ body{
 .controller-box h1 {
 	color: #fff;
     padding: 30px;
-	margin-top: 100px;
+	margin-top: 30px;
 	text-align: center;
 	font-weight: 100;
 	font-size: 25px;
@@ -144,6 +144,49 @@ table{
     z-index: 0;
 }
 
+.avatar-button{
+    /* background-image: url("../images/6.png"); */
+    background-color: transparent; 
+    background-repeat: no-repeat;  
+    background-position: center;
+    border: none;           
+    cursor: pointer;        
+    height: 100px;
+    width: 100px;
+    padding-bottom: 16px;     
+    vertical-align: middle; 
+    border-radius: 20px 15px 20px 15px;
+    position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all .3s ease;
+	font: 15px sans-serif;
+	font-weight: 450;
+	text-shadow: 0 0 20px #fff;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.avatar-box{
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    left: 710px;
+    top: 512px;
+    text-align: center;
+    justify-content:space-between;
+    z-index: 15;
+    
+}
+.status-box{
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    left: 1024px;
+    top: 522px;
+    z-index: 15;
+}
 
 
 
@@ -152,15 +195,15 @@ table{
 /* buttons */
 .button{
     background-image: url("../images/6.png");
-    background-color: transparent; /* make the button transparent */
-    background-repeat: no-repeat;  /* make the background image appear only once */
+    background-color: transparent; 
+    background-repeat: no-repeat;  
     background-position: center;
-    border: none;           /* assuming we don't want any borders */
-    cursor: pointer;        /* make the cursor like hovering over an <a> element */
-    height: 73px;
+    border: none;           
+    cursor: pointer;        
+    height: 70px;
     width: 166px;
-    padding-bottom: 16px;     /* make text start to the right of the image */
-    vertical-align: middle; /* align the text vertically centered */ 
+    padding-bottom: 16px;     
+    vertical-align: middle; 
     border-radius: 20px 15px 20px 15px;
     position: absolute;
 	display: flex;
@@ -176,63 +219,25 @@ table{
 	cursor: pointer;
 }
 
-/* .button {
-    background-image: url("../images/6.png");
-	border: 1px solid green;
-	backdrop-filter: blur(10px);
-	transform: skewX(-10deg);
-	height: 50px;
-	width: 200px;
-	border-radius: 20px 5px 20px 0px;
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	transition: all .3s ease;
-	font: 15px sans-serif;
-	font-weight: 300;
-	text-shadow: 0 0 20px #fff;
-	text-transform: uppercase;
-	animation: breath2 2s .5s infinite alternate;
-	transition: all .2s ease;
-	cursor: pointer;
-} */
-
 .button:before {
 	content: "";
 	display: block;
-	/* width: calc(100% - 22px);
-	height: calc(50px - 8px); */
 	animation: breath 2s infinite alternate;
 	left: 10px;
 	top: 3px;
 	position: absolute;
 	background-color: transparent;
 	border: 1px solid #fff;
-	/* border-radius: 15px 3px 15px 3px; */
 }
 
 .button.fire {
-	/* border-color: #ffeca8; */
 	background-image: url("../images/6.png");
 	box-shadow: 0 0 0px rgba(255, 138, 48, 0.6), 0 0px 20px rgba(255, 138, 48, 0.6), inset 0 1px #ffeca8, inset 0 -1px #ffeca8;
-	/* color: #ffeca8; */
 }
 
 .button.fire:before {
 	box-shadow: inset 0 0 30px 0 #ffeca8;
 }
-/* 
-.button.ice {
-	border-color: #a8ecff;
-	background-image: url("../images/6.png");
-	box-shadow: 0 0 70px rgba(48, 138, 255, 0.5), 0 5px 20px rgba(48, 138, 255, 0.5), inset 0 1px #ffeca8, inset 0 -1px #ffeca8;
-	color: #a8ecff;
-}
-
-.button.ice:before {
-	box-shadow: inset 0 0 30px 0 #a8ecff;
-} */
 
 .button:hover.fire {
 	box-shadow: 0 0 70px rgba(255, 138, 48, 0.8), 0 5px 20px rgba(255, 138, 48, 0.8), inset 0 1px #ffeca8, inset 0 -1px #ffeca8;
@@ -241,19 +246,6 @@ table{
 .button:hover.fire:before {
 	box-shadow: inset 0 0 50px 0 #ffeca8;
 }
-/* 
-.button:hover.ice {
-	box-shadow: 0 0 70px rgba(48, 138, 255, 0.8), 0 5px 20px rgba(48, 138, 255, 0.8), inset 0 1px #a8ecff, inset 0 -1px #a8ecff;
-}
-
-.button:hover.ice:before {
-	box-shadow: inset 0 0 50px 0 #a8ecff;
-} */
-
-/* .button + .button {
-	margin-top: 15px;
-	animation-delay: .3s;
-} */
 
 @keyframes breath {
 	0% {

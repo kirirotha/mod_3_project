@@ -50,11 +50,16 @@ ActiveRecord::Schema.define(version: 2020_09_04_201017) do
     t.boolean "leader"
     t.integer "class_type"
     t.string "cell"
+    t.string "src"
     t.integer "hp"
     t.integer "hp_max"
     t.integer "atk"
     t.integer "atk_range"
     t.integer "move_range"
+    t.boolean "attack_active"
+    t.boolean "move_active"
+    t.boolean "active"
+    t.integer "player1or2"
     t.integer "player_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

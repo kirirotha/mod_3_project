@@ -6,6 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
     renderTitleLogo()
     //placementTest()
     //attackTest()
+    startScreen()
+    // setTimeout(() =>{
+    //     player1Action()
+    // }, 1000)
+
 })
 
 const cellListener = (gameTable) => {
