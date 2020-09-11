@@ -229,17 +229,17 @@ const player1ChooseLeader = () => {
     document.getElementById("avatar3-button").style.height = "140px"
     
     avatar1Button.addEventListener('click', (e) =>{
-        selectedPiece = {name: '', src: "images/Leader_Fighter.png", leader: true, class_type: 4, hp: 145, hp_max: 145, atk: 13, atk_range: 1, move_range: 5, cell: "7_1"}
+        selectedPiece = {name: '', src: "images/Leader_Fighter.png", scalarH: 0.8, leader: true, class_type: 4, hp: 145, hp_max: 145, atk: 13, atk_range: 1, move_range: 5, cell: "7_1"}
         renderSelectedMinion()
     })
 
     avatar2Button.addEventListener('click', (e) =>{
-        selectedPiece ={name: '', src: "images/Leader_Archer.png", leader: true, class_type: 5, hp: 125, hp_max: 125, atk: 12, atk_range: 3, move_range: 5, cell: "7_1"}
+        selectedPiece ={name: '', src: "images/Leader_Archer.png", scalarH: 1, leader: true, class_type: 5, hp: 125, hp_max: 125, atk: 12, atk_range: 3, move_range: 5, cell: "7_1"}
         renderSelectedMinion()
     })
 
     avatar3Button.addEventListener('click', (e) =>{
-        selectedPiece ={name: '', src: "images/Leader_Mage.png", leader: true, class_type: 6, hp: 90, hp_max: 90, atk: 20, atk_range: 2, move_range: 5, cell: "7_1"}
+        selectedPiece ={name: '', src: "images/Leader_Mage.png", scalarH: 0.8, leader: true, class_type: 6, hp: 90, hp_max: 90, atk: 20, atk_range: 2, move_range: 5, cell: "7_1"}
         renderSelectedMinion()
     })
 
@@ -296,7 +296,7 @@ const player1ChooseMinions = () => {
     document.getElementById("reset-button").style.top = "575px"
     document.getElementById("reset-button").addEventListener('click', (e) => {
         player1ChooseMinions()
-        piecePositions = piecePositions.slice(01)
+        piecePositions = piecePositions.slice(0,1)
     })
     
 } 
@@ -335,17 +335,17 @@ const player2ChooseLeader = () => {
     document.getElementById("avatar3-button").style.height = "140px"
     
     avatar1Button.addEventListener('click', (e) =>{
-        selectedPiece = {name: '', src: "images/Leader_Fighter.png", leader: true, class_type: 4, hp: 145, hp_max: 145, atk: 13, atk_range: 1, move_range: 5, cell: "7_16"}
+        selectedPiece = {name: '', src: "images/Leader_Fighter.png", scalarH: 0.8, leader: true, class_type: 4, hp: 145, hp_max: 145, atk: 13, atk_range: 1, move_range: 5, cell: "7_16"}
         renderSelectedMinion()
     })
 
     avatar2Button.addEventListener('click', (e) =>{
-        selectedPiece ={name: '', src: "images/Leader_Archer.png", leader: true, class_type: 5, hp: 125, hp_max: 125, atk: 12, atk_range: 3, move_range: 5, cell: "7_16"}
+        selectedPiece ={name: '', src: "images/Leader_Archer.png", scalarH: 1, leader: true, class_type: 5, hp: 125, hp_max: 125, atk: 12, atk_range: 3, move_range: 5, cell: "7_16"}
         renderSelectedMinion()
     })
 
     avatar3Button.addEventListener('click', (e) =>{
-        selectedPiece ={name: '', src: "images/Leader_Mage.png", leader: true, class_type: 6, hp: 90, hp_max: 90, atk: 20, atk_range: 2, move_range: 5, cell: "7_16"}
+        selectedPiece ={name: '', src: "images/Leader_Mage.png", scalarH: 0.8, leader: true, class_type: 6, hp: 90, hp_max: 90, atk: 20, atk_range: 2, move_range: 5, cell: "7_16"}
         renderSelectedMinion()
     })
 
@@ -405,13 +405,13 @@ const player2ChooseMinions = () => {
     document.getElementById("reset-button").style.left = "23px"
     document.getElementById("reset-button").style.top = "575px"
     document.getElementById("reset-button").addEventListener('click', (e) => {
-        player1ChooseMinions()
+        player2ChooseMinions()
         piecePositions = piecePositions.slice(0,5)
     })
     
     document.getElementById("submit-button").addEventListener('click', (e) => {
         readyWindow()
-        shadeStart()
+        //shadeStart()
     })
 } 
 
@@ -424,10 +424,11 @@ const readyWindow = () => {
     statusBox.innerHTML = ""
     avatarBox.style = "null"
     statusBox.style = "null"
+    shadeArea = []
 
 
     let readyTitle = document.createElement('h1')
-    readyTitle.innerText = "Move units to starting positions!"
+    readyTitle.innerText = "Ready to Battle?"
     controlBox.appendChild(readyTitle)
     let submitButton = document.createElement('button')
     submitButton.innerText = "Start Battle!"
@@ -435,7 +436,7 @@ const readyWindow = () => {
     submitButton.classList.add('button')
     submitButton.classList.add('fire')
     controlBox.appendChild(submitButton)
-    document.getElementById("submit-button").style.left = "117px"
+    document.getElementById("submit-button").style.left = "212px"
     document.getElementById("submit-button").style.top = "575px"
     document.getElementById("submit-button").addEventListener('click', (e) => {
         let randomNumber = Math.floor(Math.random() * 10)
@@ -447,6 +448,27 @@ const readyWindow = () => {
         }
     })
     
+
+    let resetButton = document.createElement('button')
+    resetButton.innerText = "reset"
+    resetButton.id = "reset-button"
+    resetButton.classList.add('button')
+    resetButton.classList.add('fire')
+    controlBox.appendChild(resetButton)
+    document.getElementById("reset-button").style.left = "23px"
+    document.getElementById("reset-button").style.top = "575px"
+    document.getElementById("reset-button").addEventListener('click', (e) => {
+        piecePositions.forEach(piece =>{
+            piece.hp = piece.hp_max
+        })
+        shadeArea = []
+        characterSelClickCount = 0
+        piecePositions = []
+        player1ChooseLeader()
+    })
+    
+
+
 } 
 
 const shadeStart = () => {
@@ -850,8 +872,13 @@ const winnerFunc = (winner) =>{
     document.getElementById("start-button").style.left = "117px"
     document.getElementById("start-button").style.top = "275px"
     document.getElementById("start-button").addEventListener('click', (e) => {
+        piecePositions.forEach(piece =>{
+            piece.hp = piece.hp_max
+        })
+        shadeArea = []
+        characterSelClickCount = 0
+        piecePositions = []
         player1ChooseLeader()
     })
-    shadeArea = []
-    characterSelClickCount = 0
+    
 }

@@ -6,6 +6,7 @@ class CreateMinions < ActiveRecord::Migration[6.0]
       t.integer :class_type
       t.string :cell
       t.string :src
+      t.float :scalarH
       t.integer :hp
       t.integer :hp_max
       t.integer :atk

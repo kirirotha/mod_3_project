@@ -5,8 +5,8 @@ TITLE_LOGO = "images/Tactics_Lite_Logo.png"
 BACKGROUND_IMG = "images/Smoke_Background.png"
 
 
-let player1_leader_name = "Bob"
-let player2_leader_name = "Mary"
+let player1_leader_name = "Player 1"
+let player2_leader_name = "Player2"
 let lastHover
 let lastClick = "8_16"
 let rectX = 640
@@ -97,7 +97,7 @@ const renderPieces = () => {
     piecePositions.forEach(pos =>{
         if (pos.hp > 0) {
             let characterImage = pos.src
-            let scalarH = 1
+            let scalarH = pos.scalarH
             // if(pos.class_type === 4 && pos.leader === true){
             //     characterImage = LEADER_FIGHTER
             //     scalarH = 1
@@ -158,27 +158,27 @@ const renderSelectedMinion = () => {
     if (selectedPiece){
         if(selectedPiece.class_type === 4 && selectedPiece.leader === true){
             //characterImage = LEADER_FIGHTER
-            scalarH = 1
+            //scalarH = 1
             characterType = "Fighter"
         }else if(selectedPiece.class_type === 5 && selectedPiece.leader === true){
             //characterImage = LEADER_ARCHER
-            scalarH = .8
+            //scalarH = .8
             characterType = "Archer"
         }else if(selectedPiece.class_type === 6 && selectedPiece.leader === true){
             //characterImage = LEADER_MAGE
-            scalarH = 1
+            //scalarH = 1
             characterType = "Mage"
         }else if(selectedPiece.class_type === 1 && selectedPiece.leader === false){
             //characterImage = FIGHTER1
-            scalarH = 1.1
+            //scalarH = 1.1
             characterType = "Fighter"
         }else if(selectedPiece.class_type === 2 && selectedPiece.leader === false){
             //characterImage = ARCHER1
-            scalarH = 1
+            //scalarH = 1
             characterType = "Archer"
         }else if(selectedPiece.class_type === 3 && selectedPiece.leader === false){
             //characterImage = MAGE1
-            scalarH = 0.85
+            //scalarH = 0.85
             characterType = "Mage"
         }
     }
@@ -191,6 +191,7 @@ const renderSelectedMinion = () => {
     let largeImage = document.createElement('img')
     largeImage.id ="large-image"
     largeImage.src = characterImage
+    largeImage.style.height = "200px"
     avatarBox.appendChild(largeImage)
 
     let charStats = document.createElement('p')

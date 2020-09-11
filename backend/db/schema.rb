@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2020_09_04_201017) do
     t.integer "class_type"
     t.string "cell"
     t.string "src"
+    t.float "scalarH"
     t.integer "hp"
     t.integer "hp_max"
     t.integer "atk"
