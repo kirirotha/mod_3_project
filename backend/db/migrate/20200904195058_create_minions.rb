@@ -16,8 +16,7 @@ class CreateMinions < ActiveRecord::Migration[6.0]
       t.boolean :move_active
       t.boolean :active
       t.integer :player1or2
-      t.references :player, null: false, foreign_key: true
-
+      t.references :game, null: false, foreign_key: true
       t.timestamps
     end
   end

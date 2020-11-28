@@ -61,21 +61,6 @@ const placePiece = () => {
 
 }
 
-const locationPatch = () =>{
-    let thisClick2 = lastClick
-    movePieceDom(thisClick2)
-    let patchData = {
-            "cell": thisClick2
-    }
-    // fetch(`http://localhost:3000/minions/${selectedPiece.id}`,{
-    // method: 'PATCH',
-    // headers: {
-    //     "Content-Type": "application/json",
-    //     Accept: "application/json"
-    // },
-    // body: JSON.stringify(patchData)
-    // })
-}
 
 const movePieceDom = (thisClick2) => {
     const oldLocation  = selectedPiece.cell
@@ -164,6 +149,59 @@ const attackPiece = () => {
 }
     // ----------------------------------------------------------------------------------------
 
+
+const locationPatch = () =>{
+    let thisClick2 = lastClick
+    movePieceDom(thisClick2)
+    let patchData = {
+            "cell": thisClick2
+    }
+    // fetch(`http://localhost:3000/minions/${selectedPiece.id}`,{
+    // method: 'PATCH',
+    // headers: {
+    //     "Content-Type": "application/json",
+    //     Accept: "application/json"
+    // },
+    // body: JSON.stringify(patchData)
+    // })
+}
+
+
+const updateMinionsInDb = () => {
+    let patchData = {
+           game:{
+        minions: piecePositions}
+    }
+    
+    fetch(`http://localhost:3000/games/`,{
+    method: 'POST',
+    headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+    },
+    body: JSON.stringify(patchData)
+    })
+
+
+    // piecePositions.forEach(piece => {
+    //     let patchData = {minions: piecePositions}
+    
+    //     fetch(`http://localhost:3000/minions`,{
+    //     method: 'POST',
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //         Accept: "application/json"
+    //     },
+    //     body: JSON.stringify(patchData)
+    //     })
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         console.log("created")
+    //     })
+        
+    // })
+}
+
 const activatePlayers = () => {
     piecePositions.forEach(piece =>{
         piece.attack_active = true
@@ -196,8 +234,21 @@ const startScreen = () => {
     controlBox.appendChild(continueButton)
     document.getElementById("continue-button").style.left = "117px"
     document.getElementById("continue-button").style.top = "400px"
+    continueButton.disabled = false
+    
+    if (piecePositions && piecePositions.length === 8) {
+        continueButton.disabled = false
+    }
     document.getElementById("start-button").addEventListener('click', (e) => {
+        // piecePositions.forEach(piece =>{
+        //     deleteMinion(piece)
+        // })
+        piecePositions = []
         player1ChooseLeader()
+    })
+
+    document.getElementById("continue-button").addEventListener('click', (e) => {
+        player1Action()
     })
 }
 
@@ -254,6 +305,8 @@ const player1ChooseLeader = () => {
     document.getElementById("submit-button").style.top = "575px"
     document.getElementById("submit-button").addEventListener('click', (e) => {
         selectedPiece.player1or2 = 1
+        minionID = 1
+        selectedPiece.id = minionID
         piecePositions.push(selectedPiece)
         player1ChooseMinions()
     })
@@ -359,6 +412,8 @@ const player2ChooseLeader = () => {
     document.getElementById("submit-button").style.top = "575px"
     document.getElementById("submit-button").addEventListener('click', (e) => {
         selectedPiece.player1or2 = 2
+        minionID = 4
+        selectedPiece.id = minionID
         piecePositions.push(selectedPiece)
         player2ChooseMinions()
 
@@ -439,6 +494,7 @@ const readyWindow = () => {
     document.getElementById("submit-button").style.left = "212px"
     document.getElementById("submit-button").style.top = "575px"
     document.getElementById("submit-button").addEventListener('click', (e) => {
+        //updateMinionsInDb()
         let randomNumber = Math.floor(Math.random() * 10)
         
         if(randomNumber%2 === 0){

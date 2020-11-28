@@ -3,6 +3,17 @@
 # Hero Tactics
 ____________________________________________________________________________________________________________
 
+<br/>
+<div align="left">
+      <a href="https://youtu.be/i0NvsCT_Pa4">
+         <img src="https://img.youtube.com/vi/i0NvsCT_Pa4/0.jpg" style="width:100%; height:460px">
+      </a>
+</div>
+
+[Tactics Lite](https://youtu.be/i0NvsCT_Pa4)
+
+
+
 # Summary
 
 Tactical Strategy Game - Two Users will start by picking a “Leader” for their team. The Leaders consist of 3 classes. A Fighter, an Archer, and a Mage. Each class has their strengths and weaknesses. Taking a look at their “stats” will be important in choosing your team. After a Leader is chosen, you are then tasked with building out the rest of your team, with the same classes but with lesser stats than a Leader. Teams consist of 4 units total. Any combination will create different playstyles. Once both users have picked their teams and given a ready check, the game will start. At the beginning of the game, a coin gets tossed to see who goes first. When the round starts, you have access to move, attack, or wait with each individual on your team. You can only act one time per unit per turn. Conditions on attacking will be displayed in the stat sheet of the character. Once all of the units from one team are defeated, the standing team wins.

@@ -61,10 +61,10 @@ ActiveRecord::Schema.define(version: 2020_09_04_201017) do
     t.boolean "move_active"
     t.boolean "active"
     t.integer "player1or2"
-    t.integer "player_id", null: false
+    t.integer "game_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["player_id"], name: "index_minions_on_player_id"
+    t.index ["game_id"], name: "index_minions_on_game_id"
   end
 
   create_table "players", force: :cascade do |t|
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 2020_09_04_201017) do
   add_foreign_key "actions", "minions"
   add_foreign_key "actions", "players"
   add_foreign_key "boards", "games"
-  add_foreign_key "minions", "players"
+  add_foreign_key "minions", "games"
   add_foreign_key "players", "games"
   add_foreign_key "players", "users"
 end

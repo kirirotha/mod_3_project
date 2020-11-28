@@ -21,6 +21,8 @@ let shadeColor
 
 let selectedMinions = []
 let characterSelClickCount = 0
+let gameId
+let minionID = 0
 
 const FIGHTER1 = "images/Fighter_3.png"
 const FIGHTER2 = "images/Fighter_2.png"
@@ -263,7 +265,7 @@ const characterSelHover = (char) =>{
 }
 
 const characterSelClick = (char) =>{
-    char.max_hp = char.hp
+    char.hp_max = char.hp
     characterSelClickCount = characterSelClickCount + 1
     if (piecePositions.length < 4 ){
         char.cell = `${characterSelClickCount + 7}_1`
@@ -273,6 +275,7 @@ const characterSelClick = (char) =>{
         char.player1or2 = 2
     }
     if (characterSelClickCount < 4){
+        char.id = minionID + characterSelClickCount
         piecePositions.push(char)
     }
 }
